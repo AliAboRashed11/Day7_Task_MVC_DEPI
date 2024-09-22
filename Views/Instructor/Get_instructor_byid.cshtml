@@ -1,0 +1,39 @@
+﻿@model Instructor
+
+
+@{
+    Instructor ins = Model;
+}
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+
+            <th scope="col">  name </th>
+            <th scope="col">  address </th>
+            <th scope="col">  department Name</th>
+            <th scope="col">  department manager </th>
+            <th scope="col">  course name </th>
+            <th scope="col">  course  degree </th>
+            <th scope="col">  image </th>
+        </tr>
+    </thead>
+
+
+    <tr>
+
+        <td>@ins.Name</td>
+        <td>@ins.address</td>
+        <td>@ins.Department.Name</td>
+        <td>@ins.Department.manager</td>
+        <td>@ins.Course.name</td>
+        <td>@ins.Course.degree</td>
+        <td> <img src="~/images/@ins.imageurl" /> </td>
+
+    </tr>
+
+</table> 
+@* this has subtaged your html file  *@
+
+
+

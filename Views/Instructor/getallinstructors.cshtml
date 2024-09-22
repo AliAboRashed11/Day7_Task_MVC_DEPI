@@ -1,0 +1,49 @@
+﻿@using Day6task.Models
+@model List<Instructor>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <tr>
+    <thead>
+
+    <th scope="col" style=" color: var(--accent-color);">  name </th>
+    <th scope="col" style=" color: var(--accent-color);">  address </th>
+    <th scope="col" style=" color: var(--accent-color);">  department Name</th>
+    <th scope="col" style=" color: var(--accent-color);">  department manager </th>
+    <th scope="col" style=" color: var(--accent-color);">  course name </th>
+    <th scope="col" style=" color: var(--accent-color);">  course degree </th>
+    <th scope="col" style=" color: var(--accent-color);">  image </th>
+    <th scope="col" colspan="2" style=" color: var(--accent-color);">  manipulation </th>
+    </thead>
+    </tr>
+
+    <tbody>
+        @foreach (Instructor item in Model)
+        {
+            <tr>
+
+                <td>@item.Name</td>
+                <td>@item.address</td>
+                <td>@item.Department.Name</td>
+                <td>@item.Department.manager</td>
+
+                <td>@item.Course.name</td>
+                <td>@item.Course.degree</td>
+                <td> <img style="width: 94% ; height : 300px" src="~/images/@item.imageurl"> </td>
+                <td> <a class="btn btn-danger" asp-route-id="@item.id" asp-controller="instructor" asp-action="delete">delete</a> </td>
+                <td> <a class="btn btn-warning" asp-route-id="@item.id" asp-controller="instructor" asp-action="edit">update</a></td>
+
+            </tr>
+                  
+        }
+
+
+    </tbody>
+
+
+
+
+</table>
+
+<a class="btn btn-primary" style=" background-color: var(--accent-color);"
+   asp-action="insert" asp-controller="Instructor"><i class="fa-solid fa-plus"></i></a>
